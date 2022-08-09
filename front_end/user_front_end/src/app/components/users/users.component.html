@@ -1,1 +1,37 @@
-<p>users works!</p>
+<!-- <p>users works!</p> -->
+<div class="mat-elevation-z8">
+  <table mat-table [dataSource]="table" matSort>
+  
+    <!-- Position Column -->
+    <ng-container matColumnDef="username">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header><strong>Username</strong></th>
+      <td mat-cell *matCellDef="let element"> {{element.username}} </td>
+    </ng-container>
+  
+    <!-- Name Column -->
+    <ng-container matColumnDef="password">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header><strong>Password</strong></th>
+      <td mat-cell *matCellDef="let element"> {{element.password}} </td>
+    </ng-container>
+  
+    <!-- Weight Column -->
+    <ng-container matColumnDef="email">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> <strong>Email</strong> </th>
+      <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+    </ng-container>
+  
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="fullName">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> <strong>Full Name</strong> </th>
+      <td mat-cell *matCellDef="let element"> {{element.fullName}} </td>
+    </ng-container>
+  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+  <mat-paginator
+      [pageSizeOptions]="[2, 5, 7, 10]"
+      showFirstLastButtons 
+      aria-label="Select page">
+  </mat-paginator>
+</div>
